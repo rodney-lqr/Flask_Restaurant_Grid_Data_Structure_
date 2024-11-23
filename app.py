@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -363,4 +364,5 @@ def hello_world():
     return render_template('index.html', restaurants=restaurants)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=8080)
+    # app.run(debug=True)
